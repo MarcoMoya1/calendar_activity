@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity Calendar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div>
+          <p class="eyebrow">Daily log</p>
+          <h1>Activity Calendar</h1>
+        </div>
+        <div class="month-nav">
+          <button type="button" id="prev-month" aria-label="Previous month">‹</button>
+          <h2 id="month-label"></h2>
+          <button type="button" id="next-month" aria-label="Next month">›</button>
+          <button type="button" id="jump-today" class="today-jump">Today</button>
+        </div>
+      </header>
+
+      <div class="legend" id="legend"></div>
+
+      <div class="calendar-wrap">
+        <div class="weekday-row" aria-hidden="true">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+          <span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div class="grid" id="calendar" role="grid" aria-label="Month calendar"></div>
+      </div>
+    </div>
+
+    <dialog id="day-dialog" class="day-dialog">
+      <form method="dialog" class="dialog-inner">
+        <header>
+          <div>
+            <p class="eyebrow">Log activities</p>
+            <h3 id="dialog-title"></h3>
+          </div>
+          <button type="submit" class="icon-close" aria-label="Close">×</button>
+        </header>
+
+        <p class="hint">Select everything you did this day. Colors show up on the calendar.</p>
+
+        <div class="activity-list" id="activity-list"></div>
+
+        <div class="custom-row">
+          <label for="custom-activity">Add a custom activity</label>
+          <div class="custom-input">
+            <input
+              id="custom-activity"
+              type="text"
+              maxlength="32"
+              placeholder="e.g. Yoga, Cooked, Walked"
+              autocomplete="off"
+            />
+            <button type="button" id="add-custom">Add</button>
+          </div>
+        </div>
+
+        <div class="dialog-actions">
+          <button type="button" id="clear-day" class="ghost">Clear day</button>
+          <button type="submit" class="primary">Done</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
